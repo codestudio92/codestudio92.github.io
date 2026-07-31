@@ -8,6 +8,7 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://codestudio92.github.io',
   trailingSlash: 'always',
+  compressHTML: false,
   vite: {
     plugins: [tailwindcss()],
   },
