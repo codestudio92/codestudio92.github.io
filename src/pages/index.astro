@@ -3,9 +3,27 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Code Studio 92">
-  <main class="flex min-h-dvh items-center justify-center px-6">
-    <h1 class="text-4xl font-semibold tracking-tight sm:text-5xl">
-      Hello World
+  <main
+    class="relative flex min-h-dvh items-center justify-center overflow-hidden px-md"
+  >
+    <div
+      class="grid-enter pointer-events-none absolute inset-0"
+      aria-hidden="true"
+      style="
+        background-image:
+          linear-gradient(var(--border) 1px, transparent 1px),
+          linear-gradient(90deg, var(--border) 1px, transparent 1px);
+        background-size: 48px 48px;
+        mask-image: radial-gradient(ellipse 70% 55% at 50% 50%, black 15%, transparent 70%);
+        -webkit-mask-image: radial-gradient(ellipse 70% 55% at 50% 50%, black 15%, transparent 70%);
+      "
+    >
+    </div>
+
+    <h1
+      class="brand-enter relative font-display text-[clamp(1.75rem,5vw,3.25rem)] font-medium leading-[1.15] tracking-[-0.02em] text-text-1"
+    >
+      CODE STUDIO <span class="text-accent">92</span>
     </h1>
   </main>
 </Layout>

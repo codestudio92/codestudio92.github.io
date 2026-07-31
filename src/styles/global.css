@@ -1,1 +1,170 @@
 @import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --bg: var(--background);
+  --surface1: #f4f6f8;
+  --surface2: #e2e7eb;
+  --surface3: #c8d0d8;
+  --border: #e2e7eb;
+  --border-visible: #c8d0d8;
+  --text1: #0d1117;
+  --text2: #4b5563;
+  --text3: #6b7280;
+  --text4: #9aa3ae;
+  --accent: #ff6a00;
+  --accent-subtle: #fff4eb;
+  --success: #3d9a5f;
+  --success-bg: #f0fdf4;
+  --warning: #e5a73b;
+  --warning-bg: #fffbeb;
+  --error: #e5484d;
+  --error-bg: #fef2f2;
+  --font-display: "Satoshi", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --duration-fast: 120ms;
+  --duration-medium: 180ms;
+  --duration-slow: 280ms;
+  --ease: ease-out;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0d1117;
+    --surface1: #1a1f26;
+    --surface2: #2a2f36;
+    --surface3: #4b5563;
+    --border: #2a2f36;
+    --border-visible: #4b5563;
+    --text1: #ffffff;
+    --text2: #9aa3ae;
+    --text3: #6b7280;
+    --text4: #4b5563;
+    --accent: #ff8533;
+    --accent-subtle: #3d1900;
+    --success-bg: #14532d;
+    --warning-bg: #78350f;
+    --error-bg: #7f1d1d;
+  }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface-1: var(--surface1);
+  --color-surface-2: var(--surface2);
+  --color-surface-3: var(--surface3);
+  --color-border: var(--border);
+  --color-border-visible: var(--border-visible);
+  --color-text-1: var(--text1);
+  --color-text-2: var(--text2);
+  --color-text-3: var(--text3);
+  --color-text-4: var(--text4);
+  --color-accent: var(--accent);
+  --color-accent-subtle: var(--accent-subtle);
+  --color-success: var(--success);
+  --color-success-bg: var(--success-bg);
+  --color-warning: var(--warning);
+  --color-warning-bg: var(--warning-bg);
+  --color-error: var(--error);
+  --color-error-bg: var(--error-bg);
+
+  --font-display: "Satoshi", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --text-display: 34px;
+  --text-display--line-height: 1.15;
+  --text-display--letter-spacing: -0.02em;
+  --text-heading: 24px;
+  --text-heading--line-height: 1.25;
+  --text-heading--letter-spacing: -0.015em;
+  --text-subheading: 18px;
+  --text-subheading--line-height: 1.35;
+  --text-subheading--letter-spacing: -0.01em;
+  --text-body: 15px;
+  --text-body--line-height: 1.55;
+  --text-body--letter-spacing: -0.011em;
+  --text-body-sm: 13px;
+  --text-body-sm--line-height: 1.5;
+  --text-caption: 12px;
+  --text-caption--line-height: 1.4;
+  --text-label: 11px;
+  --text-label--line-height: 1.3;
+  --text-label--letter-spacing: 0.06em;
+
+  --spacing-2xs: 2px;
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+  --spacing-3xl: 64px;
+  --spacing-4xl: 96px;
+
+  --radius-element: 4px;
+  --radius-control: 6px;
+  --radius-component: 8px;
+  --radius-container: 12px;
+  --radius-pill: 999px;
+
+  --ease-out: ease-out;
+  --default-transition-timing-function: ease-out;
+  --default-transition-duration: 180ms;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--text1);
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.55;
+    letter-spacing: -0.011em;
+  }
+}
+
+@keyframes brand-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes grid-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.45;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  @keyframes grid-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 0.22;
+    }
+  }
+}
+
+.brand-enter {
+  animation: brand-in var(--duration-slow) var(--ease) both;
+}
+
+.grid-enter {
+  animation: grid-in calc(var(--duration-slow) * 2) var(--ease) both;
+}
