@@ -1,0 +1,59 @@
+---
+interface Props {
+  href?: string;
+  class?: string;
+}
+
+const { href = '/', class: className } = Astro.props;
+---
+
+<a
+  href={href}
+  class:list={['brand-lockup', className]}
+  aria-label="Code Studio 92"
+>
+  <span class="brand-word">
+    <span>Code</span>
+    <span>Studio</span>
+  </span>
+  <span class="brand-hairline" aria-hidden="true"></span>
+  <span class="brand-92">92</span>
+</a>
+
+<style>
+  .brand-lockup {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    text-decoration: none;
+    min-width: 120px;
+    color: inherit;
+  }
+
+  .brand-word {
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--text1);
+  }
+
+  .brand-hairline {
+    width: 1px;
+    height: 28px;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .brand-92 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--text1);
+  }
+</style>
