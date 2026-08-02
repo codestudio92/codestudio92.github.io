@@ -429,15 +429,16 @@ T13 → T14 → T15 → T16
 
 **Done when**:
 
-- [ ] Header uses `BrandLockup` linking `/`
-- [ ] PT/EN toggle still switches panels/strings
-- [ ] ThemeToggle present; shares `cs92-theme` with home
-- [ ] No legal copy edits
-- [ ] Gate: `npm run build` passes
+- [x] Header uses `BrandLockup` linking `/`
+- [x] PT/EN toggle still switches panels/strings
+- [x] ThemeToggle present; shares `cs92-theme` with home
+- [x] No legal copy edits
+- [x] Gate: `npm run build` passes
 
 **Tests**: none  
 **Gate**: build  
-**Commit**: `feat(site): align privacy page chrome with Code Studio 92`
+**Commit**: `feat(site): align privacy page chrome with Code Studio 92`  
+**Status**: Complete
 
 ---
 

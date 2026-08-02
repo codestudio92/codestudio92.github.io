@@ -1,5 +1,7 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
+import BrandLockup from '../../../components/BrandLockup.astro';
+import ThemeToggle from '../../../components/ThemeToggle.astro';
 
 const title = 'Política de Privacidade · Marcador de Truco';
 const description =
@@ -13,12 +15,7 @@ const description =
     <div
       class="mx-auto flex h-14 max-w-[960px] items-center justify-between px-md md:px-xl"
     >
-      <a
-        href="/"
-        class="font-display text-[17px] font-medium tracking-[-0.015em] text-text-1 transition-colors duration-[var(--duration-medium)] ease-out hover:text-accent"
-      >
-        CODE STUDIO <span class="text-accent">92</span>
-      </a>
+      <BrandLockup href="/" />
       <div
         class="flex items-center gap-xs rounded-control border border-border-visible p-2xs"
         role="group"
@@ -623,6 +620,7 @@ const description =
       </a>
     </div>
   </footer>
+  <ThemeToggle />
 </Layout>
 
 <style>
