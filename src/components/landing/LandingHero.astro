@@ -1,0 +1,285 @@
+---
+import ButtonLink from '../ButtonLink.astro';
+---
+
+<section class="lp-hero">
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="hero-vignette" aria-hidden="true"></div>
+  <div class="hero-subject" aria-hidden="true">
+    <div class="forge-ring r1"></div>
+    <div class="forge-ring r2"></div>
+    <div class="forge-ring r3"></div>
+    <div class="forge-rect a"></div>
+    <div class="forge-rect b"></div>
+    <div class="forge-line v1"></div>
+    <div class="forge-line h1"></div>
+    <div class="forge-dot d1"></div>
+    <div class="forge-dot d2"></div>
+    <span class="forge-code">forge.build()</span>
+  </div>
+
+  <div class="container">
+    <div class="hero-layout">
+      <div class="hero-copy brand-enter">
+        <div class="hero-eyebrow">
+          <span class="label">Code Studio 92</span>
+          <span class="pipe" aria-hidden="true"></span>
+          <span class="label">Crafting Digital Products</span>
+        </div>
+        <h1>Moldamos ideias em produtos digitais duráveis.</h1>
+        <p class="hero-sub">
+          Transformar complexidade em soluções elegantes. Engenharia precisa,
+          craft intencional, entrega com propósito.
+        </p>
+        <div class="hero-cta-row">
+          <ButtonLink href="mailto:codestudio92br@gmail.com" variant="primary">
+            Iniciar conversa
+          </ButtonLink>
+          <ButtonLink href="#metodo" variant="secondary">
+            Ver método
+          </ButtonLink>
+        </div>
+      </div>
+      <div aria-hidden="true"></div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .lp-hero {
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: var(--space-4xl) 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .container {
+    position: relative;
+    z-index: 10;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 var(--space-xl);
+    width: 100%;
+  }
+
+  .bg-grid {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background-image:
+      linear-gradient(var(--grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse 75% 70% at 60% 45%, black 20%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse 75% 70% at 60% 45%, black 20%, transparent 75%);
+  }
+
+  .hero-vignette {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background: radial-gradient(
+      ellipse 80% 70% at 50% 40%,
+      transparent 40%,
+      var(--background) 100%
+    );
+    opacity: 0.85;
+  }
+
+  .hero-subject {
+    position: absolute;
+    right: 6%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: min(420px, 38vw);
+    aspect-ratio: 1;
+    z-index: 5;
+    pointer-events: none;
+  }
+
+  .forge-ring {
+    position: absolute;
+    border: 1px solid var(--border-visible);
+    border-radius: 50%;
+  }
+
+  .forge-ring.r1 {
+    inset: 8%;
+  }
+
+  .forge-ring.r2 {
+    inset: 22%;
+    border-color: var(--text3);
+    opacity: 0.55;
+  }
+
+  .forge-ring.r3 {
+    inset: 36%;
+    border-color: var(--accent);
+    opacity: 0.7;
+  }
+
+  .forge-rect {
+    position: absolute;
+    border: 1px solid var(--text2);
+    background: transparent;
+  }
+
+  .forge-rect.a {
+    width: 34%;
+    height: 22%;
+    top: 18%;
+    left: 14%;
+    border-radius: var(--radius-element);
+  }
+
+  .forge-rect.b {
+    width: 28%;
+    height: 28%;
+    bottom: 20%;
+    right: 16%;
+    border-radius: var(--radius-component);
+    background: var(--surface1);
+    border-color: var(--border);
+  }
+
+  .forge-line {
+    position: absolute;
+    background: var(--accent);
+    width: 1px;
+  }
+
+  .forge-line.v1 {
+    height: 42%;
+    top: 12%;
+    left: 52%;
+  }
+
+  .forge-line.h1 {
+    width: 36%;
+    height: 1px;
+    top: 48%;
+    left: 28%;
+    background: var(--text3);
+  }
+
+  .forge-dot {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 1px solid var(--accent);
+    background: transparent;
+  }
+
+  .forge-dot.d1 {
+    top: 30%;
+    right: 28%;
+  }
+
+  .forge-dot.d2 {
+    bottom: 32%;
+    left: 30%;
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+
+  .forge-code {
+    position: absolute;
+    bottom: 14%;
+    left: 12%;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text3);
+    letter-spacing: 0.04em;
+  }
+
+  .hero-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
+    gap: var(--space-3xl);
+    align-items: center;
+    width: 100%;
+  }
+
+  .hero-copy {
+    max-width: 560px;
+    width: 100%;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-lg);
+  }
+
+  .hero-eyebrow .label {
+    font-family: var(--font-body);
+    font-size: var(--text-label);
+    font-weight: 500;
+    line-height: 1.3;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text3);
+  }
+
+  .hero-eyebrow .pipe {
+    width: 1px;
+    height: 12px;
+    background: var(--accent);
+  }
+
+  .lp-hero h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(32px, 6vw, 64px);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--text1);
+    margin: 0 0 var(--space-lg);
+    max-width: 14ch;
+  }
+
+  .hero-sub {
+    font-family: var(--font-body);
+    font-size: 18px;
+    line-height: 1.55;
+    color: var(--text2);
+    max-width: 42ch;
+    margin: 0 0 var(--space-xl);
+  }
+
+  .hero-cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-md);
+  }
+
+  @media (max-width: 900px) {
+    .hero-layout {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-subject {
+      display: none;
+    }
+
+    .lp-hero {
+      min-height: auto;
+      padding: var(--space-3xl) 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-copy {
+      animation: none;
+    }
+  }
+</style>
