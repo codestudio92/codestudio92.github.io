@@ -8,24 +8,26 @@ import BrandLockup from '../BrandLockup.astro';
 
   <div class="container">
     <div class="hero-layout">
-      <div class="hero-copy brand-enter">
-        <h1 class="hero-brand">
+      <div class="hero-copy">
+        <h1 class="hero-brand brand-enter">
           <BrandLockup size="hero" class="hero-lockup" />
         </h1>
-        <p class="hero-sub">Transformando ideias em produtos digitais</p>
+        <p class="hero-sub brand-enter" style="--enter-delay: 80ms">
+          Transformando ideias em produtos digitais
+        </p>
       </div>
 
       <div class="hero-subject" data-parallax-root aria-hidden="true">
-        <div class="forge-ring r1" data-depth="0.12"></div>
-        <div class="forge-ring r2" data-depth="0.28"></div>
-        <div class="forge-ring r3" data-depth="0.48"></div>
-        <div class="forge-rect a" data-depth="0.36"></div>
-        <div class="forge-rect b" data-depth="0.58"></div>
-        <div class="forge-line v1" data-depth="0.7"></div>
-        <div class="forge-line h1" data-depth="0.32"></div>
-        <div class="forge-dot d1" data-depth="0.82"></div>
-        <div class="forge-dot d2" data-depth="0.9"></div>
-        <span class="forge-code" data-depth="0.55">forge.build()</span>
+        <div class="forge-ring r1" data-depth="0.12" style="--forge-delay: 0ms"></div>
+        <div class="forge-ring r2" data-depth="0.28" style="--forge-delay: 50ms"></div>
+        <div class="forge-ring r3" data-depth="0.48" style="--forge-delay: 100ms"></div>
+        <div class="forge-rect a" data-depth="0.36" style="--forge-delay: 140ms"></div>
+        <div class="forge-rect b" data-depth="0.58" style="--forge-delay: 180ms"></div>
+        <div class="forge-line v1" data-depth="0.7" style="--forge-delay: 200ms"></div>
+        <div class="forge-line h1" data-depth="0.32" style="--forge-delay: 220ms"></div>
+        <div class="forge-dot d1" data-depth="0.82" style="--forge-delay: 240ms"></div>
+        <div class="forge-dot d2" data-depth="0.9" style="--forge-delay: 260ms"></div>
+        <span class="forge-code" data-depth="0.55" style="--forge-delay: 280ms">forge.build()</span>
       </div>
     </div>
   </div>
@@ -183,7 +185,10 @@ import BrandLockup from '../BrandLockup.astro';
   }
 
   .hero-subject [data-depth] {
+    --forge-opacity: 1;
     will-change: transform;
+    animation: forge-in var(--duration-slow) var(--ease) both;
+    animation-delay: var(--forge-delay, 0ms);
   }
 
   .forge-ring {
@@ -199,13 +204,13 @@ import BrandLockup from '../BrandLockup.astro';
   .forge-ring.r2 {
     inset: 22%;
     border-color: var(--text3);
-    opacity: 0.55;
+    --forge-opacity: 0.55;
   }
 
   .forge-ring.r3 {
     inset: 36%;
     border-color: var(--accent);
-    opacity: 0.7;
+    --forge-opacity: 0.7;
   }
 
   .forge-rect {
@@ -309,11 +314,9 @@ import BrandLockup from '../BrandLockup.astro';
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .hero-copy {
-      animation: none;
-    }
-
     .hero-subject [data-depth] {
+      animation: none;
+      opacity: var(--forge-opacity, 1);
       transform: none !important;
     }
   }

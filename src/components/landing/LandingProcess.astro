@@ -29,18 +29,18 @@ const steps: { title: string; body: string; icon: ReiconName }[] = [
 <section id="metodo" class="lp-process">
   <div class="shell">
     <div class="head">
-      <div class="eyebrow">
+      <div class="eyebrow" data-reveal>
         <span class="num">03</span>
         <span class="mark" aria-hidden="true"></span>
         <span class="label">Método</span>
       </div>
-      <h2>Como trabalhamos</h2>
+      <h2 data-reveal style="--reveal-delay: 60ms">Como trabalhamos</h2>
     </div>
 
     <ol class="steps">
       {
         steps.map((step, i) => (
-          <li class="step">
+          <li class="step" data-reveal style={`--reveal-delay: ${100 + i * 60}ms`}>
             <div class="step-meta">
               <span class="step-num">{String(i + 1).padStart(2, '0')}</span>
               <span class="step-icon">
