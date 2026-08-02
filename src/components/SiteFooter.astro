@@ -1,0 +1,122 @@
+---
+import BrandLockup from './BrandLockup.astro';
+---
+
+<footer class="lp-footer">
+  <div class="lp-footer__inner">
+    <div class="lp-footer__top">
+      <div class="brand-col">
+        <BrandLockup />
+        <p>
+          Crafting Digital Products. Studio de engenharia que transforma
+          complexidade em soluções elegantes.
+        </p>
+      </div>
+      <div class="col">
+        <h4>Studio</h4>
+        <ul>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#metodo">Método</a></li>
+          <li><a href="#projetos">Projetos</a></li>
+          <li><a href="#engajamentos">Engajamentos</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <h4>Craft</h4>
+        <ul>
+          <li><a href="#servicos">Web</a></li>
+          <li><a href="#servicos">Mobile</a></li>
+          <li><a href="#servicos">AI</a></li>
+          <li><a href="#servicos">Design system</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <h4>Contato</h4>
+        <ul>
+          <li>
+            <a href="mailto:codestudio92br@gmail.com">Iniciar conversa</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="lp-footer__bottom">
+      <span>© 2026 Code Studio 92</span>
+      <span>Crafting Digital Products</span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .lp-footer {
+    padding: var(--space-2xl) 0 var(--space-3xl);
+  }
+
+  .lp-footer__inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 var(--space-xl);
+    width: 100%;
+  }
+
+  .lp-footer__top {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: var(--space-xl);
+    padding-bottom: var(--space-2xl);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .brand-col p {
+    margin: var(--space-md) 0 0;
+    font-size: var(--text-body-sm);
+    color: var(--text2);
+    max-width: 28ch;
+    line-height: 1.5;
+  }
+
+  .col h4 {
+    font-family: var(--font-body);
+    font-size: var(--text-label);
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text3);
+    margin: 0 0 var(--space-md);
+  }
+
+  .col ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .col a {
+    font-size: var(--text-body-sm);
+    color: var(--text2);
+    text-decoration: none;
+    transition: color var(--duration-fast) var(--ease-fast);
+  }
+
+  .col a:hover {
+    color: var(--text1);
+  }
+
+  .lp-footer__bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-md);
+    padding-top: var(--space-lg);
+    font-family: var(--font-body);
+    font-size: var(--text-caption);
+    color: var(--text3);
+  }
+
+  @media (max-width: 900px) {
+    .lp-footer__top {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
