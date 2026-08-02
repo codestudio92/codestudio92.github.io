@@ -1,0 +1,192 @@
+---
+interface FeaturePoint {
+  icon: string;
+  text: string;
+}
+
+interface Props {
+  id: string;
+  index: string;
+  label: string;
+  title: string;
+  body: string;
+  points: FeaturePoint[];
+  reverse?: boolean;
+  linkLabel?: string;
+  linkHref?: string;
+}
+
+const {
+  id,
+  index,
+  label,
+  title,
+  body,
+  points,
+  reverse = false,
+  linkLabel,
+  linkHref,
+} = Astro.props;
+---
+
+<section id={id} class:list={['lp-feature', { reverse }]}>
+  <div class="feature-text">
+    <div class="feature-eyebrow">
+      <span class="num">{index}</span>
+      <span class="mark" aria-hidden="true"></span>
+      <span class="label">{label}</span>
+    </div>
+    <h2 class="feature-heading">{title}</h2>
+    <p class="feature-body">{body}</p>
+    <ul class="feature-points">
+      {
+        points.map((point) => (
+          <li>
+            <i class={point.icon} aria-hidden="true"></i>
+            {point.text}
+          </li>
+        ))
+      }
+    </ul>
+    {
+      linkLabel && linkHref && (
+        <a href={linkHref} class="link-arrow">
+          {linkLabel} <i class="ph-thin ph-arrow-right" aria-hidden="true"></i>
+        </a>
+      )
+    }
+  </div>
+  <div class="feature-visual">
+    <slot />
+  </div>
+</section>
+
+<style>
+  .lp-feature {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3xl);
+    align-items: center;
+    padding: var(--space-4xl) var(--space-xl);
+    border-bottom: 1px solid var(--border);
+    max-width: 1120px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .lp-feature.reverse .feature-text {
+    order: 2;
+  }
+
+  .feature-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-lg);
+  }
+
+  .feature-eyebrow .num {
+    font-family: var(--font-body);
+    font-size: var(--text-label);
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--text3);
+  }
+
+  .feature-eyebrow .mark {
+    width: 24px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .feature-eyebrow .label {
+    font-family: var(--font-body);
+    font-size: var(--text-label);
+    font-weight: 500;
+    line-height: 1.3;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text2);
+  }
+
+  .feature-heading {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(24px, 3.2vw, 36px);
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    color: var(--text1);
+    margin: 0 0 var(--space-md);
+  }
+
+  .feature-body {
+    font-family: var(--font-body);
+    font-size: var(--text-body);
+    line-height: 1.55;
+    color: var(--text2);
+    max-width: 44ch;
+    margin: 0 0 var(--space-lg);
+  }
+
+  .feature-points {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    margin: 0 0 var(--space-lg);
+    padding: 0;
+    list-style: none;
+  }
+
+  .feature-points li {
+    display: flex;
+    gap: var(--space-sm);
+    align-items: flex-start;
+    font-family: var(--font-body);
+    font-size: var(--text-body-sm);
+    color: var(--text1);
+  }
+
+  .feature-points li i {
+    color: var(--accent);
+    font-size: 16px;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+
+  .feature-visual {
+    width: 100%;
+  }
+
+  .link-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-family: var(--font-body);
+    font-size: var(--text-body-sm);
+    font-weight: 500;
+    color: var(--text1);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: var(--space-2xs);
+    transition: border-color var(--duration-fast) var(--ease-fast);
+  }
+
+  .link-arrow:hover {
+    border-color: var(--accent);
+  }
+
+  .link-arrow i {
+    font-size: 16px;
+    color: var(--accent);
+  }
+
+  @media (max-width: 900px) {
+    .lp-feature {
+      grid-template-columns: 1fr;
+    }
+
+    .lp-feature.reverse .feature-text {
+      order: 0;
+    }
+  }
+</style>
