@@ -457,12 +457,13 @@ T13 → T14 → T15 → T16
 
 **Done when**:
 
-- [ ] Favicon fill/text uses `#F97316` (not `#FF6A00`)
-- [ ] Gate: `npm run build` passes
+- [x] Favicon fill/text uses `#F97316` (not `#FF6A00`)
+- [x] Gate: `npm run build` passes
 
 **Tests**: none  
 **Gate**: build  
-**Commit**: `feat(site): update favicon to Code Studio 92 accent`
+**Commit**: `feat(site): update favicon to Code Studio 92 accent`  
+**Status**: Complete
 
 ---
 
