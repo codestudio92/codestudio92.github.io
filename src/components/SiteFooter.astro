@@ -107,4 +107,21 @@ import BrandLockup from './BrandLockup.astro';
       grid-template-columns: 1fr;
     }
   }
+
+  @media (max-width: 560px) {
+    .lp-footer__inner {
+      padding: 0 var(--space-md);
+    }
+
+    .brand-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .brand-col p {
+      max-width: 22ch;
+    }
+  }
 </style>

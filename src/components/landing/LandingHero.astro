@@ -311,6 +311,46 @@ import BrandLockup from '../BrandLockup.astro';
     .container {
       padding: 0 var(--space-md);
     }
+
+    .lp-hero {
+      min-height: calc(100svh - 56px);
+      align-items: center;
+      padding: var(--space-2xl) 0;
+    }
+
+    .hero-layout {
+      justify-items: center;
+      gap: var(--space-2xl);
+      text-align: center;
+    }
+
+    .hero-copy {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 100%;
+    }
+
+    .hero-brand {
+      display: flex;
+      justify-content: center;
+      margin-bottom: var(--space-lg);
+    }
+
+    .hero-sub {
+      max-width: 22ch;
+      text-align: center;
+    }
+
+    .hero-subject {
+      width: min(220px, 58vw);
+      opacity: 0.4;
+    }
+
+    .bg-grid {
+      mask-image: radial-gradient(ellipse 90% 60% at 50% 40%, black 15%, transparent 70%);
+      -webkit-mask-image: radial-gradient(ellipse 90% 60% at 50% 40%, black 15%, transparent 70%);
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {

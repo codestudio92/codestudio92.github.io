@@ -1,5 +1,6 @@
 ---
 import BrandLockup from './BrandLockup.astro';
+import ReIcon from './ReIcon.astro';
 
 interface NavItem {
   label: string;
@@ -26,14 +27,50 @@ const hasNav = items.length > 0;
     <BrandLockup variant="icon" />
     {
       hasNav && (
-        <nav class="lp-nav" aria-label="Principal">
-          {items.map((item) => (
-            <a href={item.href}>{item.label}</a>
-          ))}
-        </nav>
+        <>
+          <nav class="lp-nav lp-nav--desktop" aria-label="Principal">
+            {items.map((item) => (
+              <a href={item.href}>{item.label}</a>
+            ))}
+          </nav>
+
+          <button
+            type="button"
+            class="lp-menu-btn"
+            data-menu-toggle
+            aria-expanded="false"
+            aria-controls="lp-mobile-nav"
+            aria-label="Abrir menu"
+          >
+            <span class="lp-menu-btn__icon lp-menu-btn__icon--open">
+              <ReIcon name="menu" size={22} />
+            </span>
+            <span class="lp-menu-btn__icon lp-menu-btn__icon--close">
+              <ReIcon name="xmark" size={22} />
+            </span>
+          </button>
+        </>
       )
     }
   </div>
+
+  {
+    hasNav && (
+      <nav
+        id="lp-mobile-nav"
+        class="lp-nav lp-nav--mobile"
+        aria-label="Principal"
+        hidden
+        data-mobile-nav
+      >
+        {items.map((item) => (
+          <a href={item.href} data-menu-link>
+            {item.label}
+          </a>
+        ))}
+      </nav>
+    )
+  }
 </header>
 
 <style>
@@ -45,7 +82,6 @@ const hasNav = items.length > 0;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
-    height: 56px;
     box-shadow: none;
   }
 
@@ -54,20 +90,21 @@ const hasNav = items.length > 0;
     align-items: center;
     justify-content: space-between;
     gap: var(--space-lg);
-    height: 100%;
+    height: 56px;
     max-width: 1120px;
     margin: 0 auto;
     padding: 0 var(--space-xl);
     width: 100%;
   }
 
-  .lp-nav {
+  .lp-nav--desktop {
     display: flex;
     align-items: center;
     gap: var(--space-md);
   }
 
-  .lp-nav a {
+  .lp-nav--desktop a,
+  .lp-nav--mobile a {
     font-family: var(--font-body);
     font-size: var(--text-label);
     font-weight: 500;
@@ -79,8 +116,51 @@ const hasNav = items.length > 0;
     transition: color var(--duration-fast) var(--ease-fast);
   }
 
-  .lp-nav a:hover {
+  .lp-nav--desktop a:hover,
+  .lp-nav--mobile a:hover {
     color: var(--text1);
+  }
+
+  .lp-menu-btn {
+    display: none;
+    appearance: none;
+    border: none;
+    background: transparent;
+    color: var(--text1);
+    padding: var(--space-xs);
+    margin: 0;
+    cursor: pointer;
+    line-height: 0;
+    border-radius: var(--radius-element);
+  }
+
+  .lp-menu-btn:hover {
+    color: var(--accent);
+  }
+
+  .lp-menu-btn__icon--close {
+    display: none;
+  }
+
+  .lp-menu-btn[aria-expanded='true'] .lp-menu-btn__icon--open {
+    display: none;
+  }
+
+  .lp-menu-btn[aria-expanded='true'] .lp-menu-btn__icon--close {
+    display: inline-flex;
+  }
+
+  .lp-nav--mobile {
+    display: none;
+    flex-direction: column;
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-md) var(--space-md);
+    border-top: 1px solid var(--border);
+  }
+
+  .lp-nav--mobile a {
+    display: block;
+    padding: var(--space-sm) 0;
   }
 
   @media (max-width: 560px) {
@@ -88,8 +168,56 @@ const hasNav = items.length > 0;
       padding: 0 var(--space-md);
     }
 
-    .lp-nav {
+    .lp-nav--desktop {
       display: none;
+    }
+
+    .lp-menu-btn {
+      display: inline-flex;
+    }
+
+    .lp-nav--mobile:not([hidden]) {
+      display: flex;
     }
   }
 </style>
+
+{
+  hasNav && (
+    <script>
+      function syncMenu(open: boolean) {
+        const toggle = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
+        const panel = document.querySelector<HTMLElement>('[data-mobile-nav]');
+        if (!toggle || !panel) return;
+
+        toggle.setAttribute('aria-expanded', String(open));
+        toggle.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+        panel.hidden = !open;
+      }
+
+      function isMenuOpen() {
+        const toggle = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
+        return toggle?.getAttribute('aria-expanded') === 'true';
+      }
+
+      document.querySelector('[data-menu-toggle]')?.addEventListener('click', () => {
+        syncMenu(!isMenuOpen());
+      });
+
+      document.querySelectorAll('[data-menu-link]').forEach((link) => {
+        link.addEventListener('click', () => syncMenu(false));
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && isMenuOpen()) {
+          syncMenu(false);
+        }
+      });
+
+      const desktopQuery = window.matchMedia('(min-width: 561px)');
+      desktopQuery.addEventListener('change', (event) => {
+        if (event.matches) syncMenu(false);
+      });
+    </script>
+  )
+}

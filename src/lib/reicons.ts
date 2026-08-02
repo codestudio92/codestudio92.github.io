@@ -8,6 +8,7 @@ import { Cpu } from 'reicon/icons/Cpu';
 import { Envelope } from 'reicon/icons/Envelope';
 import { Gauge } from 'reicon/icons/Gauge';
 import { Lightbulb } from 'reicon/icons/Lightbulb';
+import { Menu } from 'reicon/icons/Menu';
 import { Mobile } from 'reicon/icons/Mobile';
 import { Monitor } from 'reicon/icons/Monitor';
 import { Moon } from 'reicon/icons/Moon';
@@ -19,6 +20,7 @@ import { Sledgehammer } from 'reicon/icons/Sledgehammer';
 import { Sun } from 'reicon/icons/Sun';
 import { TestTube } from 'reicon/icons/TestTube';
 import { Text } from 'reicon/icons/Text';
+import { Xmark } from 'reicon/icons/Xmark';
 
 type IconFn = {
   toSvg: (options?: {
@@ -40,6 +42,7 @@ export const reicons = {
   envelope: Envelope,
   gauge: Gauge,
   lightbulb: Lightbulb,
+  menu: Menu,
   mobile: Mobile,
   monitor: Monitor,
   moon: Moon,
@@ -51,6 +54,7 @@ export const reicons = {
   sun: Sun,
   'test-tube': TestTube,
   text: Text,
+  xmark: Xmark,
 } as const satisfies Record<string, IconFn>;
 
 export type ReiconName = keyof typeof reicons;
