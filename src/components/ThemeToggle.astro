@@ -1,0 +1,85 @@
+---
+---
+
+<div class="theme-bar" role="group" aria-label="Tema">
+  <button type="button" data-theme-btn="light">Light</button>
+  <button type="button" data-theme-btn="dark">Dark</button>
+</div>
+
+<style>
+  .theme-bar {
+    position: fixed;
+    bottom: var(--space-lg);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 200;
+    display: flex;
+    gap: var(--space-2xs);
+    padding: var(--space-xs);
+    background: var(--surface1);
+    border: 1px solid var(--border-visible);
+    border-radius: var(--radius-pill);
+    box-shadow: none;
+  }
+
+  .theme-bar button {
+    appearance: none;
+    border: none;
+    background: transparent;
+    color: var(--text3);
+    font-family: var(--font-body);
+    font-size: var(--text-caption);
+    font-weight: 500;
+    padding: 6px 14px;
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    transition:
+      background var(--duration-fast) var(--ease-fast),
+      color var(--duration-fast) var(--ease-fast);
+  }
+
+  .theme-bar button.active {
+    background: var(--surface2);
+    color: var(--text1);
+  }
+
+  .theme-bar button:hover {
+    color: var(--text1);
+  }
+</style>
+
+<script>
+  function readTheme(): 'dark' | 'light' {
+    const current = document.documentElement.dataset.theme;
+    if (current === 'light' || current === 'dark') return current;
+    return 'dark';
+  }
+
+  function syncActive(theme: 'dark' | 'light') {
+    document.querySelectorAll('[data-theme-btn]').forEach((btn) => {
+      const el = btn as HTMLButtonElement;
+      el.classList.toggle('active', el.dataset.themeBtn === theme);
+    });
+  }
+
+  function applyTheme(theme: 'dark' | 'light') {
+    document.documentElement.dataset.theme = theme;
+    try {
+      localStorage.setItem('cs92-theme', theme);
+    } catch {
+      /* session-only when storage is blocked */
+    }
+    syncActive(theme);
+  }
+
+  syncActive(readTheme());
+
+  document.querySelectorAll('[data-theme-btn]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const next = (btn as HTMLButtonElement).dataset.themeBtn;
+      if (next === 'light' || next === 'dark') {
+        applyTheme(next);
+      }
+    });
+  });
+</script>
