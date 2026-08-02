@@ -272,15 +272,16 @@ T13 → T14 → T15 → T16
 
 **Done when**:
 
-- [ ] First-viewport content matches mockup IA (no stats/chips/cards in hero)
-- [ ] Primary + secondary CTAs (mailto + `#metodo`)
-- [ ] Forge decoration `aria-hidden`; one orange CTA signal
-- [ ] ≥1 entrance motion with ease-out ≤280ms; respects `prefers-reduced-motion`
-- [ ] Gate: `npm run build` passes
+- [x] First-viewport content matches mockup IA (no stats/chips/cards in hero)
+- [x] Primary + secondary CTAs (mailto + `#metodo`)
+- [x] Forge decoration `aria-hidden`; one orange CTA signal
+- [x] ≥1 entrance motion with ease-out ≤280ms; respects `prefers-reduced-motion`
+- [x] Gate: `npm run build` passes
 
 **Tests**: none  
 **Gate**: build  
-**Commit**: `feat(site): add LandingHero section`
+**Commit**: `feat(site): add LandingHero section`  
+**Status**: Complete (`51ec24d`)
 
 ---
 
@@ -299,13 +300,14 @@ T13 → T14 → T15 → T16
 
 **Done when**:
 
-- [ ] Props support `id`, index, label, title, body, points, reverse, optional link
-- [ ] Visual panel contained without drop shadows; ≤1 orange focal signal
-- [ ] Gate: `npm run build` passes
+- [x] Props support `id`, index, label, title, body, points, reverse, optional link
+- [x] Visual panel contained without drop shadows; ≤1 orange focal signal
+- [x] Gate: `npm run build` passes
 
 **Tests**: none  
 **Gate**: build  
-**Commit**: `feat(site): add LandingFeature section component`
+**Commit**: `feat(site): add LandingFeature section component`  
+**Status**: Complete (`1bcc554`)
 
 ---
 
@@ -324,12 +326,13 @@ T13 → T14 → T15 → T16
 
 **Done when**:
 
-- [ ] Renders quote + attrib; root/`section` has `id="studio"`
-- [ ] Gate: `npm run build` passes
+- [x] Renders quote + attrib; root/`section` has `id="studio"`
+- [x] Gate: `npm run build` passes
 
 **Tests**: none  
 **Gate**: build  
-**Commit**: `feat(site): add LandingQuote section`
+**Commit**: `feat(site): add LandingQuote section`  
+**Status**: Complete (`f36f5e2`)
 
 ---
 
@@ -348,13 +351,14 @@ T13 → T14 → T15 → T16
 
 **Done when**:
 
-- [ ] Three tiers with mockup copy; featured tier uses surface/border emphasis (not orange wash)
-- [ ] CTAs mailto; single primary orange button among featured tier
-- [ ] Gate: `npm run build` passes
+- [x] Three tiers with mockup copy; featured tier uses surface/border emphasis (not orange wash)
+- [x] CTAs mailto; single primary orange button among featured tier
+- [x] Gate: `npm run build` passes
 
 **Tests**: none  
 **Gate**: build  
-**Commit**: `feat(site): add LandingPricing engagements section`
+**Commit**: `feat(site): add LandingPricing engagements section`  
+**Status**: Complete (`f4da0e9`)
 
 ---
 
@@ -373,12 +377,13 @@ T13 → T14 → T15 → T16
 
 **Done when**:
 
-- [ ] Headline/body/note from mockup; primary mailto; secondary `#projetos`
-- [ ] Gate: `npm run build` passes
+- [x] Headline/body/note from mockup; primary mailto; secondary `#projetos`
+- [x] Gate: `npm run build` passes
 
 **Tests**: none  
 **Gate**: build  
-**Commit**: `feat(site): add LandingCta final block`
+**Commit**: `feat(site): add LandingCta final block`  
+**Status**: Complete (`cdd30d6`)
 
 ---
 
@@ -397,14 +402,15 @@ T13 → T14 → T15 → T16
 
 **Done when**:
 
-- [ ] IA order: header → hero → features (`#servicos`, `#metodo`, `#projetos`) → quote (`#studio`) → pricing (`#engajamentos`) → CTA → footer → theme toggle
-- [ ] Responsive ≤900px: single column, nav hidden, CTAs usable
-- [ ] ≥2 intentional motions on page load/interaction
-- [ ] Gate: `npm run build` passes
+- [x] IA order: header → hero → features (`#servicos`, `#metodo`, `#projetos`) → quote (`#studio`) → pricing (`#engajamentos`) → CTA → footer → theme toggle
+- [x] Responsive ≤900px: single column, nav hidden, CTAs usable
+- [x] ≥2 intentional motions on page load/interaction
+- [x] Gate: `npm run build` passes
 
 **Tests**: none  
 **Gate**: build  
-**Commit**: `feat(site): compose Code Studio 92 marketing landing`
+**Commit**: `feat(site): compose Code Studio 92 marketing landing`  
+**Status**: Complete
 
 ---
 
