@@ -1,6 +1,7 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
-import BrandLockup from '../../../components/BrandLockup.astro';
+import SiteHeader from '../../../components/SiteHeader.astro';
+import SiteFooter from '../../../components/SiteFooter.astro';
 import ThemeToggle from '../../../components/ThemeToggle.astro';
 
 const title = 'Política de Privacidade · Marcador de Truco';
@@ -9,48 +10,26 @@ const description =
 ---
 
 <Layout title={title} description={description}>
-  <header
-    class="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur-[2px]"
-  >
-    <div
-      class="mx-auto flex h-14 max-w-[960px] items-center justify-between px-md md:px-xl"
-    >
-      <BrandLockup href="/" />
-      <div
-        class="flex items-center gap-xs rounded-control border border-border-visible p-2xs"
-        role="group"
-        aria-label="Idioma"
-      >
-        <button
-          type="button"
-          data-lang-btn="pt"
-          class="lang-btn is-active rounded-element px-sm py-xs text-caption font-medium text-text-2 transition-colors duration-[var(--duration-fast)] ease-out"
-          aria-pressed="true"
-        >
-          PT
-        </button>
-        <button
-          type="button"
-          data-lang-btn="en"
-          class="lang-btn rounded-element px-sm py-xs text-caption font-medium text-text-2 transition-colors duration-[var(--duration-fast)] ease-out"
-          aria-pressed="false"
-        >
-          EN
-        </button>
-      </div>
-    </div>
-  </header>
+  <SiteHeader navItems={[]} />
 
-  <main class="mx-auto max-w-[960px] px-md pb-3xl pt-2xl md:px-xl">
+  <main class="privacy-main">
     <div class="policy-enter mb-2xl">
-      <p
-        class="mb-sm text-label font-medium uppercase tracking-[0.06em] text-text-2"
-      >
-        Marcador de Truco
-      </p>
-      <h1
-        class="font-display text-[clamp(1.75rem,4vw,2.125rem)] font-medium leading-[1.15] tracking-[-0.02em] text-text-1"
-      >
+      <div class="policy-enter__row">
+        <p
+          class="mb-sm text-label font-medium uppercase tracking-[0.06em] text-text-2"
+        >
+          Marcador de Truco
+        </p>
+        <div class="lang-switch" role="group" aria-label="Idioma">
+          <button type="button" data-lang-btn="pt" class="lang-btn is-active" aria-pressed="true">
+            PT
+          </button>
+          <button type="button" data-lang-btn="en" class="lang-btn" aria-pressed="false">
+            EN
+          </button>
+        </div>
+      </div>
+      <h1 class="policy-title">
         <span data-i18n="pt">Política de Privacidade</span>
         <span data-i18n="en" hidden>Privacy Policy</span>
       </h1>
@@ -329,7 +308,7 @@ const description =
           Se você tiver alguma dúvida, solicitação sobre seus dados (LGPD) ou
           sugestão sobre nossa Política de Privacidade, não hesite em nos
           contatar através do e-mail:
-          <a href="mailto:codestudio92br@gmail.com">codestudio92br@gmail.com</a>.
+          <a href="mailto:codestudio92@gmail.com">codestudio92@gmail.com</a>.
         </p>
       </section>
     </article>
@@ -597,50 +576,99 @@ const description =
           If you have any questions, requests about your data (LGPD/GDPR), or
           suggestions about our Privacy Policy, do not hesitate to contact us
           via email:
-          <a href="mailto:codestudio92br@gmail.com">codestudio92br@gmail.com</a>.
+          <a href="mailto:codestudio92@gmail.com">codestudio92@gmail.com</a>.
         </p>
       </section>
     </article>
   </main>
 
-  <footer class="border-t border-border">
-    <div
-      class="mx-auto flex max-w-[960px] flex-col gap-sm px-md py-xl text-caption text-text-3 md:flex-row md:items-center md:justify-between md:px-xl"
-    >
-      <p>
-        <span class="font-display text-body-sm font-medium tracking-[-0.01em] text-text-2"
-          >CODE STUDIO <span class="text-accent">92</span></span
-        >
-      </p>
-      <a
-        href="mailto:codestudio92br@gmail.com"
-        class="text-text-2 transition-colors duration-[var(--duration-medium)] ease-out hover:text-accent"
-      >
-        codestudio92br@gmail.com
-      </a>
-    </div>
-  </footer>
+  <SiteFooter />
   <ThemeToggle />
 </Layout>
 
 <style>
+  .privacy-main {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: var(--space-2xl) var(--space-xl) var(--space-3xl);
+    width: 100%;
+  }
+
+  @media (max-width: 560px) {
+    .privacy-main {
+      padding-inline: var(--space-md);
+    }
+  }
+
+  .policy-enter__row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-md);
+  }
+
+  .policy-enter__row > p {
+    margin-bottom: var(--space-sm);
+  }
+
+  .lang-switch {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: var(--space-2xs);
+    padding: var(--space-2xs);
+    border: 1px solid var(--border-visible);
+    border-radius: var(--radius-control);
+  }
+
+  .lang-btn {
+    appearance: none;
+    border: none;
+    background: transparent;
+    border-radius: var(--radius-element);
+    padding: var(--space-xs) var(--space-sm);
+    font-family: var(--font-body);
+    font-size: var(--text-caption);
+    font-weight: 500;
+    color: var(--text2);
+    cursor: pointer;
+    transition: color var(--duration-fast) var(--ease-fast),
+      background var(--duration-fast) var(--ease-fast);
+  }
+
+  .lang-btn.is-active {
+    background: var(--accent-subtle);
+    color: var(--accent);
+  }
+
   .policy-enter {
     animation: brand-in var(--duration-slow) var(--ease) both;
   }
 
+  .policy-title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: var(--text-display);
+    font-weight: 700;
+    line-height: var(--text-display--line-height);
+    letter-spacing: var(--text-display--letter-spacing);
+    color: var(--text1);
+  }
+
   .policy-prose {
+    font-family: var(--font-body);
     font-size: var(--text-body);
-    line-height: 1.55;
-    letter-spacing: -0.011em;
+    line-height: var(--text-body--line-height);
+    letter-spacing: var(--text-body--letter-spacing);
     color: var(--text1);
   }
 
   .policy-prose h2 {
     font-family: var(--font-display);
-    font-size: var(--text-subheading);
-    font-weight: 500;
-    line-height: 1.35;
-    letter-spacing: -0.01em;
+    font-size: var(--text-heading);
+    font-weight: 600;
+    line-height: var(--text-heading--line-height);
+    letter-spacing: var(--text-heading--letter-spacing);
     color: var(--text1);
   }
 
@@ -658,7 +686,7 @@ const description =
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: var(--space-md);
     padding: 0;
   }
 
@@ -687,11 +715,6 @@ const description =
 
   .policy-prose a:hover {
     color: var(--text1);
-  }
-
-  .lang-btn.is-active {
-    background: var(--accent-subtle);
-    color: var(--accent);
   }
 </style>
 

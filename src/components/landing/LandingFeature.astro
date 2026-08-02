@@ -1,6 +1,9 @@
 ---
+import ReIcon from '../ReIcon.astro';
+import type { ReiconName } from '../../lib/reicons';
+
 interface FeaturePoint {
-  icon: string;
+  icon: ReiconName;
   text: string;
 }
 
@@ -42,7 +45,9 @@ const {
       {
         points.map((point) => (
           <li>
-            <i class={point.icon} aria-hidden="true"></i>
+            <span class="point-icon">
+              <ReIcon name={point.icon} size={16} />
+            </span>
             {point.text}
           </li>
         ))
@@ -51,7 +56,10 @@ const {
     {
       linkLabel && linkHref && (
         <a href={linkHref} class="link-arrow">
-          {linkLabel} <i class="ph-thin ph-arrow-right" aria-hidden="true"></i>
+          {linkLabel}
+          <span class="link-icon">
+            <ReIcon name="arrow-right" size={16} />
+          </span>
         </a>
       )
     }
@@ -146,11 +154,9 @@ const {
     color: var(--text1);
   }
 
-  .feature-points li i {
+  .point-icon {
     color: var(--accent);
-    font-size: 16px;
     margin-top: 2px;
-    flex-shrink: 0;
   }
 
   .feature-visual {
@@ -175,8 +181,7 @@ const {
     border-color: var(--accent);
   }
 
-  .link-arrow i {
-    font-size: 16px;
+  .link-icon {
     color: var(--accent);
   }
 

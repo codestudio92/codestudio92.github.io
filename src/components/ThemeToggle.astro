@@ -1,17 +1,24 @@
 ---
+import ReIcon from './ReIcon.astro';
 ---
 
 <div class="theme-bar" role="group" aria-label="Tema">
-  <button type="button" data-theme-btn="light">Light</button>
-  <button type="button" data-theme-btn="dark">Dark</button>
+  <button type="button" data-theme-btn="light" aria-label="Tema claro">
+    <span class="theme-icon"><ReIcon name="sun" size={16} /></span>
+    <span>Claro</span>
+  </button>
+  <button type="button" data-theme-btn="dark" aria-label="Tema escuro">
+    <span class="theme-icon"><ReIcon name="moon" size={16} /></span>
+    <span>Escuro</span>
+  </button>
 </div>
 
 <style>
   .theme-bar {
     position: fixed;
     bottom: var(--space-lg);
-    left: 50%;
-    transform: translateX(-50%);
+    right: var(--space-lg);
+    left: auto;
     z-index: 200;
     display: flex;
     gap: var(--space-2xs);
@@ -30,12 +37,20 @@
     font-family: var(--font-body);
     font-size: var(--text-caption);
     font-weight: 500;
-    padding: 6px 14px;
+    padding: 6px 12px;
     border-radius: var(--radius-pill);
     cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
     transition:
       background var(--duration-fast) var(--ease-fast),
       color var(--duration-fast) var(--ease-fast);
+  }
+
+  .theme-icon {
+    display: inline-flex;
+    line-height: 0;
   }
 
   .theme-bar button.active {
@@ -45,6 +60,13 @@
 
   .theme-bar button:hover {
     color: var(--text1);
+  }
+
+  @media (max-width: 560px) {
+    .theme-bar {
+      right: var(--space-md);
+      bottom: var(--space-md);
+    }
   }
 </style>
 

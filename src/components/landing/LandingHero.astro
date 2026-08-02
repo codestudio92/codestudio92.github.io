@@ -1,49 +1,98 @@
 ---
-import ButtonLink from '../ButtonLink.astro';
+import BrandLockup from '../BrandLockup.astro';
 ---
 
 <section class="lp-hero">
   <div class="bg-grid" aria-hidden="true"></div>
   <div class="hero-vignette" aria-hidden="true"></div>
-  <div class="hero-subject" aria-hidden="true">
-    <div class="forge-ring r1"></div>
-    <div class="forge-ring r2"></div>
-    <div class="forge-ring r3"></div>
-    <div class="forge-rect a"></div>
-    <div class="forge-rect b"></div>
-    <div class="forge-line v1"></div>
-    <div class="forge-line h1"></div>
-    <div class="forge-dot d1"></div>
-    <div class="forge-dot d2"></div>
-    <span class="forge-code">forge.build()</span>
-  </div>
 
   <div class="container">
     <div class="hero-layout">
       <div class="hero-copy brand-enter">
-        <div class="hero-eyebrow">
-          <span class="label">Code Studio 92</span>
-          <span class="pipe" aria-hidden="true"></span>
-          <span class="label">Crafting Digital Products</span>
-        </div>
-        <h1>Moldamos ideias em produtos digitais duráveis.</h1>
-        <p class="hero-sub">
-          Transformar complexidade em soluções elegantes. Engenharia precisa,
-          craft intencional, entrega com propósito.
-        </p>
-        <div class="hero-cta-row">
-          <ButtonLink href="mailto:codestudio92br@gmail.com" variant="primary">
-            Iniciar conversa
-          </ButtonLink>
-          <ButtonLink href="#metodo" variant="secondary">
-            Ver método
-          </ButtonLink>
-        </div>
+        <h1 class="hero-brand">
+          <BrandLockup size="hero" class="hero-lockup" />
+        </h1>
+        <p class="hero-sub">Transformando ideias em produtos digitais</p>
       </div>
-      <div aria-hidden="true"></div>
+
+      <div class="hero-subject" data-parallax-root aria-hidden="true">
+        <div class="forge-ring r1" data-depth="0.12"></div>
+        <div class="forge-ring r2" data-depth="0.28"></div>
+        <div class="forge-ring r3" data-depth="0.48"></div>
+        <div class="forge-rect a" data-depth="0.36"></div>
+        <div class="forge-rect b" data-depth="0.58"></div>
+        <div class="forge-line v1" data-depth="0.7"></div>
+        <div class="forge-line h1" data-depth="0.32"></div>
+        <div class="forge-dot d1" data-depth="0.82"></div>
+        <div class="forge-dot d2" data-depth="0.9"></div>
+        <span class="forge-code" data-depth="0.55">forge.build()</span>
+      </div>
     </div>
   </div>
 </section>
+
+<script>
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const root = document.querySelector('[data-parallax-root]');
+
+  if (root instanceof HTMLElement && !reduceMotion) {
+    const layers = Array.from(root.querySelectorAll('[data-depth]')).filter(
+      (el): el is HTMLElement => el instanceof HTMLElement,
+    );
+    const target = { x: 0, y: 0 };
+    const current = { x: 0, y: 0 };
+    const maxOffset = 48;
+    let frame = 0;
+
+    const tick = () => {
+      current.x += (target.x - current.x) * 0.12;
+      current.y += (target.y - current.y) * 0.12;
+
+      for (const layer of layers) {
+        const depth = Number(layer.dataset.depth) || 0;
+        const x = current.x * depth;
+        const y = current.y * depth;
+        layer.style.transform = `translate3d(${x.toFixed(2)}px, ${y.toFixed(2)}px, 0)`;
+      }
+
+      frame = requestAnimationFrame(tick);
+    };
+
+    const hero = root.closest('.lp-hero');
+    const track = hero instanceof HTMLElement ? hero : root;
+
+    const onPointerMove = (event: PointerEvent) => {
+      const rect = track.getBoundingClientRect();
+      const midX = rect.left + rect.width / 2;
+      const midY = rect.top + rect.height / 2;
+      const halfW = Math.max(rect.width / 2, 1);
+      const halfH = Math.max(rect.height / 2, 1);
+      const nx = Math.max(-1, Math.min(1, (event.clientX - midX) / halfW));
+      const ny = Math.max(-1, Math.min(1, (event.clientY - midY) / halfH));
+      target.x = nx * maxOffset;
+      target.y = ny * maxOffset;
+    };
+
+    const onPointerLeave = () => {
+      target.x = 0;
+      target.y = 0;
+    };
+
+    track.addEventListener('pointermove', onPointerMove, { passive: true });
+    track.addEventListener('pointerleave', onPointerLeave);
+    frame = requestAnimationFrame(tick);
+
+    document.addEventListener(
+      'astro:before-swap',
+      () => {
+        cancelAnimationFrame(frame);
+        track.removeEventListener('pointermove', onPointerMove);
+        track.removeEventListener('pointerleave', onPointerLeave);
+      },
+      { once: true },
+    );
+  }
+</script>
 
 <style>
   .lp-hero {
@@ -91,15 +140,50 @@ import ButtonLink from '../ButtonLink.astro';
     opacity: 0.85;
   }
 
+  .hero-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
+    gap: var(--space-3xl);
+    align-items: center;
+    width: 100%;
+  }
+
+  .hero-copy {
+    max-width: 720px;
+    width: 100%;
+  }
+
+  .hero-brand {
+    margin: 0 0 var(--space-xl);
+  }
+
+  .hero-lockup {
+    pointer-events: auto;
+  }
+
+  .hero-sub {
+    font-family: var(--font-body);
+    font-size: clamp(14px, 1.6vw, 16px);
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: -0.011em;
+    color: var(--text2);
+    max-width: 32ch;
+    margin: 0;
+  }
+
   .hero-subject {
-    position: absolute;
-    right: 6%;
-    top: 50%;
-    transform: translateY(-50%);
-    width: min(420px, 38vw);
+    position: relative;
+    justify-self: end;
+    width: min(100%, 420px);
     aspect-ratio: 1;
+    overflow: visible;
     z-index: 5;
-    pointer-events: none;
+    pointer-events: auto;
+  }
+
+  .hero-subject [data-depth] {
+    will-change: transform;
   }
 
   .forge-ring {
@@ -199,87 +283,38 @@ import ButtonLink from '../ButtonLink.astro';
     letter-spacing: 0.04em;
   }
 
-  .hero-layout {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
-    gap: var(--space-3xl);
-    align-items: center;
-    width: 100%;
-  }
-
-  .hero-copy {
-    max-width: 560px;
-    width: 100%;
-  }
-
-  .hero-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-sm);
-    margin-bottom: var(--space-lg);
-  }
-
-  .hero-eyebrow .label {
-    font-family: var(--font-body);
-    font-size: var(--text-label);
-    font-weight: 500;
-    line-height: 1.3;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--text3);
-  }
-
-  .hero-eyebrow .pipe {
-    width: 1px;
-    height: 12px;
-    background: var(--accent);
-  }
-
-  .lp-hero h1 {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: clamp(32px, 6vw, 64px);
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-    color: var(--text1);
-    margin: 0 0 var(--space-lg);
-    max-width: 14ch;
-  }
-
-  .hero-sub {
-    font-family: var(--font-body);
-    font-size: 18px;
-    line-height: 1.55;
-    color: var(--text2);
-    max-width: 42ch;
-    margin: 0 0 var(--space-xl);
-  }
-
-  .hero-cta-row {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: var(--space-md);
-  }
-
   @media (max-width: 900px) {
     .hero-layout {
       grid-template-columns: 1fr;
+      justify-items: start;
     }
 
     .hero-subject {
-      display: none;
+      justify-self: center;
+      width: min(280px, 70vw);
+      opacity: 0.55;
+      pointer-events: none;
     }
 
     .lp-hero {
       min-height: auto;
-      padding: var(--space-3xl) 0;
+      padding: var(--space-3xl) 0 var(--space-4xl);
+    }
+  }
+
+  @media (max-width: 560px) {
+    .container {
+      padding: 0 var(--space-md);
     }
   }
 
   @media (prefers-reduced-motion: reduce) {
     .hero-copy {
       animation: none;
+    }
+
+    .hero-subject [data-depth] {
+      transform: none !important;
     }
   }
 </style>

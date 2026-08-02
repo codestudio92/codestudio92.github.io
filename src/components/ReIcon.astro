@@ -1,0 +1,38 @@
+---
+import { renderReicon, type ReiconName } from '../lib/reicons';
+
+interface Props {
+  name: ReiconName;
+  size?: number;
+  weight?: 'Outline' | 'Filled';
+  class?: string;
+}
+
+const {
+  name,
+  size = 20,
+  weight = 'Outline',
+  class: className = 'reicon',
+} = Astro.props;
+
+const html = renderReicon(name, {
+  size,
+  weight,
+  className,
+  color: 'currentColor',
+});
+---
+
+<span class="reicon-wrap" aria-hidden="true" set:html={html} />
+
+<style>
+  .reicon-wrap {
+    display: inline-flex;
+    line-height: 0;
+    flex-shrink: 0;
+  }
+
+  .reicon-wrap :global(svg) {
+    display: block;
+  }
+</style>

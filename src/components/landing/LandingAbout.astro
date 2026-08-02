@@ -1,0 +1,156 @@
+<section id="oficio" class="lp-about">
+  <div class="shell">
+    <div class="eyebrow">
+      <span class="num">01</span>
+      <span class="mark" aria-hidden="true"></span>
+      <span class="label">Ofício</span>
+    </div>
+
+    <div class="grid">
+      <div class="title-col">
+        <h2>Crafting Digital Products</h2>
+      </div>
+
+      <div class="copy-col">
+        <p class="lead">
+          Cada produto digital é construído como uma peça única.
+        </p>
+        <p>
+          Assim como um artesão domina sua técnica, acreditamos que software de
+          qualidade nasce da combinação entre conhecimento técnico, atenção aos
+          detalhes e melhoria contínua.
+        </p>
+        <p class="closing">
+          Esse é o significado da Code Studio 92: desenvolver soluções digitais
+          que unem engenharia, experiência e propósito.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .lp-about {
+    border-bottom: 1px solid var(--border);
+    padding: var(--space-4xl) 0;
+  }
+
+  .shell {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 var(--space-xl);
+    width: 100%;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-2xl);
+  }
+
+  .num {
+    font-family: var(--font-body);
+    font-size: var(--text-label);
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--text3);
+  }
+
+  .mark {
+    width: 24px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .label {
+    font-family: var(--font-body);
+    font-size: var(--text-label);
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text2);
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    gap: var(--space-3xl);
+    align-items: start;
+  }
+
+  .title-col {
+    position: relative;
+    padding-left: var(--space-lg);
+  }
+
+  .title-col::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.15em;
+    bottom: 0.15em;
+    width: 1px;
+    background: var(--accent);
+  }
+
+  .lp-about h2 {
+    margin: 0;
+    max-width: 10ch;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(32px, 4.5vw, 48px);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--text1);
+  }
+
+  .copy-col {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    padding-top: var(--space-2xs);
+  }
+
+  .copy-col p {
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: var(--text-body);
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: -0.011em;
+    color: var(--text2);
+    max-width: 48ch;
+  }
+
+  .copy-col .lead {
+    color: var(--text1);
+    font-family: var(--font-display);
+    font-size: clamp(18px, 2.2vw, 22px);
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+    max-width: 28ch;
+  }
+
+  .copy-col .closing {
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--border);
+    color: var(--text1);
+  }
+
+  @media (max-width: 900px) {
+    .grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-xl);
+    }
+
+    .lp-about h2 {
+      max-width: 14ch;
+    }
+
+    .copy-col {
+      padding-top: 0;
+    }
+  }
+</style>

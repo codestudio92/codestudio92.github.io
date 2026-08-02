@@ -1,6 +1,5 @@
 ---
 import BrandLockup from './BrandLockup.astro';
-import ButtonLink from './ButtonLink.astro';
 
 interface NavItem {
   label: string;
@@ -8,34 +7,32 @@ interface NavItem {
 }
 
 interface Props {
-  navItems?: NavItem[];
+  navItems?: NavItem[] | null;
 }
 
 const defaultNav: NavItem[] = [
-  { label: 'Serviços', href: '#servicos' },
-  { label: 'Método', href: '#metodo' },
-  { label: 'Projetos', href: '#projetos' },
-  { label: 'Studio', href: '#studio' },
+  { label: 'Ofício', href: '/#oficio' },
+  { label: 'Princípios', href: '/#principios' },
+  { label: 'Método', href: '/#metodo' },
 ];
 
 const { navItems = defaultNav } = Astro.props;
+const items = navItems ?? [];
+const hasNav = items.length > 0;
 ---
 
 <header class="lp-header">
   <div class="lp-header__inner">
-    <BrandLockup />
-    <nav class="lp-nav" aria-label="Principal">
-      {
-        navItems.map((item) => (
-          <a href={item.href}>{item.label}</a>
-        ))
-      }
-    </nav>
-    <div class="lp-header-actions">
-      <ButtonLink href="mailto:codestudio92br@gmail.com" variant="primary">
-        Iniciar conversa
-      </ButtonLink>
-    </div>
+    <BrandLockup variant="icon" />
+    {
+      hasNav && (
+        <nav class="lp-nav" aria-label="Principal">
+          {items.map((item) => (
+            <a href={item.href}>{item.label}</a>
+          ))}
+        </nav>
+      )
+    }
   </div>
 </header>
 
@@ -56,6 +53,7 @@ const { navItems = defaultNav } = Astro.props;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: var(--space-lg);
     height: 100%;
     max-width: 1120px;
     margin: 0 auto;
@@ -66,15 +64,18 @@ const { navItems = defaultNav } = Astro.props;
   .lp-nav {
     display: flex;
     align-items: center;
-    gap: var(--space-xl);
+    gap: var(--space-md);
   }
 
   .lp-nav a {
     font-family: var(--font-body);
-    font-size: var(--text-body-sm);
+    font-size: var(--text-label);
     font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
     color: var(--text2);
     text-decoration: none;
+    white-space: nowrap;
     transition: color var(--duration-fast) var(--ease-fast);
   }
 
@@ -82,13 +83,11 @@ const { navItems = defaultNav } = Astro.props;
     color: var(--text1);
   }
 
-  .lp-header-actions {
-    display: flex;
-    align-items: center;
-    gap: var(--space-md);
-  }
+  @media (max-width: 560px) {
+    .lp-header__inner {
+      padding: 0 var(--space-md);
+    }
 
-  @media (max-width: 900px) {
     .lp-nav {
       display: none;
     }
