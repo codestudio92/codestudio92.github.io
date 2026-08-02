@@ -482,13 +482,18 @@ T13 → T14 → T15 → T16
 
 **Done when**:
 
-- [ ] `rg -i 'satoshi|#ff6a00|#0d1117' src public` shows no active brand token hits (allow comments/history none)
-- [ ] `npm run build` passes
-- [ ] Manual spot-check list recorded in task notes: home dark/light, mailto, anchors, privacy PT/EN
+- [x] `rg -i 'satoshi|#ff6a00|#0d1117' src public` shows no active brand token hits (allow comments/history none)
+- [x] `npm run build` passes
+- [x] Manual spot-check list recorded in task notes: home dark/light, mailto, anchors, privacy PT/EN
+
+**Notes**:
+- Purge grep: zero hits under `src/` and `public/` (no leftovers after T1–T15).
+- Spot-check (build + source IA): home IA order + `#servicos`/`#metodo`/`#projetos`/`#studio`/`#engajamentos`; mailto CTAs; ThemeToggle `cs92-theme`; privacy BrandLockup + PT/EN script untouched; favicon `#F97316`.
 
 **Tests**: none  
 **Gate**: build  
-**Commit**: `chore(site): purge obsolete brand tokens`
+**Commit**: `chore(site): purge obsolete brand tokens`  
+**Status**: Complete
 
 ---
 
