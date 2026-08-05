@@ -1,0 +1,417 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import SiteHeader from '../../../components/SiteHeader.astro';
+import SiteFooter from '../../../components/SiteFooter.astro';
+import ThemeToggle from '../../../components/ThemeToggle.astro';
+
+const title = 'Política de Privacidade · Afinador de Ukulele';
+const description =
+  'Política de privacidade do aplicativo Afinador de Ukulele, da Code Studio 92.';
+---
+
+<Layout title={title} description={description}>
+  <SiteHeader navItems={[]} />
+
+  <main class="privacy-main">
+    <div class="policy-enter mb-2xl">
+      <div class="policy-enter__row">
+        <p
+          class="mb-sm text-label font-medium uppercase tracking-[0.06em] text-text-2"
+        >
+          Afinador de Ukulele
+        </p>
+        <div class="lang-switch" role="group" aria-label="Idioma">
+          <button type="button" data-lang-btn="pt" class="lang-btn is-active" aria-pressed="true">
+            PT
+          </button>
+          <button type="button" data-lang-btn="en" class="lang-btn" aria-pressed="false">
+            EN
+          </button>
+        </div>
+      </div>
+      <h1 class="policy-title">
+        <span data-i18n="pt">Política de Privacidade</span>
+        <span data-i18n="en" hidden>Privacy Policy</span>
+      </h1>
+      <div class="mt-lg h-px w-12 bg-accent" aria-hidden="true"></div>
+    </div>
+
+    <!-- PT -->
+    <article data-lang-panel="pt" class="policy-prose space-y-2xl">
+      <section class="space-y-md">
+        <p>
+          <strong>Última atualização:</strong> 04 de agosto de 2026
+        </p>
+        <p>
+          A sua privacidade é importante para nós. Esta Política de Privacidade
+          descreve como o aplicativo <strong>Afinador de Ukulele</strong> trata
+          as informações durante sua utilização.
+        </p>
+      </section>
+
+      <section class="space-y-md border-t border-border pt-2xl">
+        <h2>Coleta de dados</h2>
+        <p>
+          O <strong>Afinador de Ukulele</strong>
+          <strong
+            >não coleta, armazena, compartilha ou vende dados pessoais dos
+            usuários</strong
+          >.
+        </p>
+        <p>
+          O aplicativo funciona inteiramente no dispositivo do usuário e não
+          possui servidor próprio para processamento de informações.
+        </p>
+      </section>
+
+      <section class="space-y-md border-t border-border pt-2xl">
+        <h2>Uso do microfone</h2>
+        <p>
+          O aplicativo solicita acesso ao <strong>microfone</strong>
+          exclusivamente para identificar a frequência sonora das cordas do
+          ukulele e determinar a nota musical correspondente.
+        </p>
+        <p>O áudio:</p>
+        <ul>
+          <li>não é gravado;</li>
+          <li>não é armazenado;</li>
+          <li>não é transmitido para qualquer servidor;</li>
+          <li>não é compartilhado com terceiros.</li>
+        </ul>
+        <p>
+          Todo o processamento do áudio ocorre localmente no próprio dispositivo.
+        </p>
+      </section>
+
+      <section class="space-y-md border-t border-border pt-2xl">
+        <h2>Serviços de terceiros</h2>
+        <p>
+          O aplicativo não utiliza serviços de análise, publicidade,
+          autenticação ou armazenamento em nuvem.
+        </p>
+        <p>
+          A única interação com terceiros ocorre por meio da infraestrutura da
+          <strong>Google Play</strong>, necessária para distribuição, instalação
+          e atualização do aplicativo.
+        </p>
+        <p>
+          Esses serviços são regidos pelas respectivas políticas de privacidade
+          da Google.
+        </p>
+      </section>
+
+      <section class="space-y-md border-t border-border pt-2xl">
+        <h2>Permissões</h2>
+        <p>O aplicativo solicita apenas a seguinte permissão:</p>
+        <ul>
+          <li>
+            <strong>Microfone</strong>: necessária para detectar a afinação do
+            instrumento.
+          </li>
+        </ul>
+        <p>
+          Essa permissão é utilizada exclusivamente para essa finalidade.
+        </p>
+      </section>
+
+      <section class="space-y-md border-t border-border pt-2xl">
+        <h2>Crianças</h2>
+        <p>
+          O aplicativo não coleta informações pessoais de crianças ou de
+          qualquer outro usuário.
+        </p>
+      </section>
+
+      <section class="space-y-md border-t border-border pt-2xl">
+        <h2>Alterações nesta Política</h2>
+        <p>
+          Esta Política de Privacidade poderá ser atualizada para refletir
+          alterações no funcionamento do aplicativo ou para atender a novos
+          requisitos legais.
+        </p>
+        <p>
+          Quando houver mudanças relevantes, a data de atualização será
+          modificada nesta página.
+        </p>
+      </section>
+
+      <section class="space-y-md border-t border-border pt-2xl">
+        <h2>Contato</h2>
+        <p>
+          Caso tenha dúvidas sobre esta Política de Privacidade, entre em
+          contato pelo e-mail:
+          <a href="mailto:codestudio92@gmail.com">codestudio92@gmail.com</a>.
+        </p>
+      </section>
+    </article>
+
+    <!-- EN -->
+    <article data-lang-panel="en" class="policy-prose space-y-2xl" hidden>
+      <section class="space-y-md">
+        <p>
+          <strong>Last updated:</strong> August 4, 2026
+        </p>
+        <p>
+          Your privacy is important to us. This Privacy Policy describes how the
+          <strong>Ukulele Tuner</strong> application handles information during
+          its use.
+        </p>
+      </section>
+
+      <section class="space-y-md border-t border-border pt-2xl">
+        <h2>Data Collection</h2>
+        <p>
+          The <strong>Ukulele Tuner</strong>
+          <strong
+            >does not collect, store, share, or sell users' personal data</strong
+          >.
+        </p>
+        <p>
+          The application runs entirely on the user's device and does not have
+          its own server for processing information.
+        </p>
+      </section>
+
+      <section class="space-y-md border-t border-border pt-2xl">
+        <h2>Microphone Use</h2>
+        <p>
+          The application requests access to the <strong>microphone</strong>
+          exclusively to identify the sound frequency of the ukulele strings and
+          determine the corresponding musical note.
+        </p>
+        <p>The audio:</p>
+        <ul>
+          <li>is not recorded;</li>
+          <li>is not stored;</li>
+          <li>is not transmitted to any server;</li>
+          <li>is not shared with third parties.</li>
+        </ul>
+        <p>
+          All audio processing occurs locally on the device itself.
+        </p>
+      </section>
+
+      <section class="space-y-md border-t border-border pt-2xl">
+        <h2>Third-Party Services</h2>
+        <p>
+          The application does not use analytics, advertising, authentication,
+          or cloud storage services.
+        </p>
+        <p>
+          The only interaction with third parties occurs through the
+          <strong>Google Play</strong> infrastructure, required for distribution,
+          installation, and updates of the application.
+        </p>
+        <p>
+          These services are governed by Google's respective privacy policies.
+        </p>
+      </section>
+
+      <section class="space-y-md border-t border-border pt-2xl">
+        <h2>Permissions</h2>
+        <p>The application requests only the following permission:</p>
+        <ul>
+          <li>
+            <strong>Microphone</strong>: required to detect the instrument's
+            tuning.
+          </li>
+        </ul>
+        <p>
+          This permission is used exclusively for that purpose.
+        </p>
+      </section>
+
+      <section class="space-y-md border-t border-border pt-2xl">
+        <h2>Children</h2>
+        <p>
+          The application does not collect personal information from children or
+          from any other user.
+        </p>
+      </section>
+
+      <section class="space-y-md border-t border-border pt-2xl">
+        <h2>Changes to This Policy</h2>
+        <p>
+          This Privacy Policy may be updated to reflect changes in how the
+          application works or to meet new legal requirements.
+        </p>
+        <p>
+          When relevant changes occur, the update date on this page will be
+          modified.
+        </p>
+      </section>
+
+      <section class="space-y-md border-t border-border pt-2xl">
+        <h2>Contact</h2>
+        <p>
+          If you have questions about this Privacy Policy, please contact us by
+          email:
+          <a href="mailto:codestudio92@gmail.com">codestudio92@gmail.com</a>.
+        </p>
+      </section>
+    </article>
+  </main>
+
+  <SiteFooter />
+  <ThemeToggle />
+</Layout>
+
+<style>
+  .privacy-main {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: var(--space-2xl) var(--space-xl) var(--space-3xl);
+    width: 100%;
+  }
+
+  @media (max-width: 560px) {
+    .privacy-main {
+      padding-inline: var(--space-md);
+    }
+  }
+
+  .policy-enter__row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-md);
+  }
+
+  .policy-enter__row > p {
+    margin-bottom: var(--space-sm);
+  }
+
+  .lang-switch {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: var(--space-2xs);
+    padding: var(--space-2xs);
+    border: 1px solid var(--border-visible);
+    border-radius: var(--radius-control);
+  }
+
+  .lang-btn {
+    appearance: none;
+    border: none;
+    background: transparent;
+    border-radius: var(--radius-element);
+    padding: var(--space-xs) var(--space-sm);
+    font-family: var(--font-body);
+    font-size: var(--text-caption);
+    font-weight: 500;
+    color: var(--text2);
+    cursor: pointer;
+    transition: color var(--duration-fast) var(--ease-fast),
+      background var(--duration-fast) var(--ease-fast);
+  }
+
+  .lang-btn.is-active {
+    background: var(--accent-subtle);
+    color: var(--accent);
+  }
+
+  .policy-enter {
+    animation: brand-in var(--duration-slow) var(--ease) both;
+  }
+
+  .policy-title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: var(--text-display);
+    font-weight: 700;
+    line-height: var(--text-display--line-height);
+    letter-spacing: var(--text-display--letter-spacing);
+    color: var(--text1);
+  }
+
+  .policy-prose {
+    font-family: var(--font-body);
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+    letter-spacing: var(--text-body--letter-spacing);
+    color: var(--text1);
+  }
+
+  .policy-prose h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-heading);
+    font-weight: 600;
+    line-height: var(--text-heading--line-height);
+    letter-spacing: var(--text-heading--letter-spacing);
+    color: var(--text1);
+  }
+
+  .policy-prose p,
+  .policy-prose li {
+    color: var(--text2);
+  }
+
+  .policy-prose strong {
+    color: var(--text1);
+    font-weight: 500;
+  }
+
+  .policy-prose ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    padding: 0;
+  }
+
+  .policy-prose li {
+    position: relative;
+    padding-left: 16px;
+  }
+
+  .policy-prose li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 4px;
+    height: 4px;
+    border-radius: 999px;
+    background: var(--accent);
+  }
+
+  .policy-prose a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color var(--duration-fast) var(--ease);
+  }
+
+  .policy-prose a:hover {
+    color: var(--text1);
+  }
+</style>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>('[data-lang-btn]');
+  const panels = document.querySelectorAll<HTMLElement>('[data-lang-panel]');
+  const titles = document.querySelectorAll<HTMLElement>('[data-i18n]');
+
+  function setLang(lang: 'pt' | 'en') {
+    buttons.forEach((btn) => {
+      const active = btn.dataset.langBtn === lang;
+      btn.classList.toggle('is-active', active);
+      btn.setAttribute('aria-pressed', String(active));
+    });
+    panels.forEach((panel) => {
+      panel.hidden = panel.dataset.langPanel !== lang;
+    });
+    titles.forEach((el) => {
+      el.hidden = el.dataset.i18n !== lang;
+    });
+    document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+  }
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const lang = btn.dataset.langBtn;
+      if (lang === 'pt' || lang === 'en') setLang(lang);
+    });
+  });
+</script>
