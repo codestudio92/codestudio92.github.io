@@ -172,15 +172,23 @@ const description =
 
       <section class="space-y-md border-t border-border pt-2xl">
         <h2>Permissões</h2>
-        <p>O aplicativo solicita apenas a seguinte permissão:</p>
+        <p>O aplicativo solicita as seguintes permissões:</p>
         <ul>
           <li>
             <strong>Microfone</strong>: necessária para detectar a afinação do
             instrumento.
           </li>
+          <li>
+            <strong>Identificador de publicidade (AD_ID)</strong>: declarado no
+            manifesto do aplicativo para que o Google Analytics for Firebase
+            acesse o Android Advertising ID, conforme descrito na seção
+            <strong>Identificadores de publicidade</strong>.
+          </li>
         </ul>
         <p>
-          Essa permissão é utilizada exclusivamente para essa finalidade.
+          O microfone é utilizado exclusivamente para afinação. O identificador
+          de publicidade é utilizado apenas no contexto descrito na seção
+          <strong>Identificadores de publicidade</strong>.
         </p>
       </section>
 
@@ -349,15 +357,23 @@ const description =
 
       <section class="space-y-md border-t border-border pt-2xl">
         <h2>Permissions</h2>
-        <p>The application requests only the following permission:</p>
+        <p>The application requests the following permissions:</p>
         <ul>
           <li>
             <strong>Microphone</strong>: required to detect the instrument's
             tuning.
           </li>
+          <li>
+            <strong>Advertising identifier (AD_ID)</strong>: declared in the
+            application manifest so Google Analytics for Firebase may access the
+            Android Advertising ID, as described in the
+            <strong>Advertising Identifiers</strong> section.
+          </li>
         </ul>
         <p>
-          This permission is used exclusively for that purpose.
+          The microphone is used exclusively for tuning. The advertising
+          identifier is used only in the context described in the
+          <strong>Advertising Identifiers</strong> section.
         </p>
       </section>
 
