@@ -53,16 +53,16 @@ const description =
         <h2>Coleta de dados</h2>
         <p>
           O <strong>Afinador de Ukulele</strong> não solicita cadastro nem
-          coleta dados fornecidos diretamente pelo usuário (como nome, e-mail ou
-          telefone).
+          coleta dados que você digita (como nome, e-mail ou telefone).
         </p>
         <p>
-          A funcionalidade principal de afinação ocorre no dispositivo do usuário
-          e o aplicativo não possui servidor próprio para esse processamento.
+          A funcionalidade principal de afinação ocorre no dispositivo e o
+          processamento de áudio é local; o aplicativo não possui servidor
+          próprio para esse processamento.
         </p>
         <p>
-          Dados de uso, diagnóstico e desempenho são coletados automaticamente
-          por serviços Firebase (Google), conforme descrito na seção
+          Parte da telemetria é opcional e depende do seu consentimento.
+          Diagnóstico e desempenho seguem as regras descritas na seção
           <strong>Serviços Firebase</strong> abaixo.
         </p>
       </section>
@@ -89,20 +89,31 @@ const description =
       <section class="space-y-md border-t border-border pt-2xl">
         <h2>Serviços Firebase</h2>
         <p>
-          O aplicativo utiliza serviços Firebase (Google) para entender o uso,
-          diagnosticar falhas e monitorar o desempenho. Os dados são
-          processados por Google conforme a
+          O aplicativo utiliza serviços Firebase (Google). Os dados são
+          processados pelo Google conforme a
           <a href="https://policies.google.com/privacy" rel="noopener noreferrer"
             >Política de Privacidade do Google</a
           >.
         </p>
+        <p>
+          <strong>Estatísticas de uso (opcional).</strong>
+          <strong>Google Analytics for Firebase</strong>, incluindo o
+          identificador de publicidade quando aplicável, coleta dados de uso do
+          app, eventos automáticos e identificadores de app/dispositivo apenas
+          após seu <strong>consentimento explícito</strong>, que você pode
+          conceder, recusar ou alterar a qualquer momento em
+          <strong>Configurações → Preferências de privacidade</strong> (veja
+          também <strong>Suas escolhas</strong> abaixo). Se você recusar ou
+          desativar essa opção, novas coletas analíticas são interrompidas e
+          os dados analíticos locais do dispositivo são redefinidos.
+        </p>
+        <p>
+          <strong>Diagnóstico e desempenho (necessários).</strong>
+          Os serviços abaixo são necessários para manter a estabilidade e a
+          qualidade do aplicativo e <strong>não dependem</strong> da escolha
+          opcional de estatísticas de uso:
+        </p>
         <ul>
-          <li>
-            <strong>Google Analytics for Firebase</strong>: dados de uso do
-            app, eventos automáticos, identificadores de app/dispositivo e
-            identificador de publicidade (Android Advertising ID), para
-            entender como o aplicativo é utilizado e melhorar o produto.
-          </li>
           <li>
             <strong>Firebase Crashlytics</strong>: stack traces de falhas,
             identificadores de instalação e informações de dispositivo e sistema
@@ -121,39 +132,81 @@ const description =
           </li>
         </ul>
         <p>
-          O uso do identificador de publicidade é detalhado na seção
+          O uso do identificador de publicidade no contexto de estatísticas de
+          uso é detalhado na seção
           <strong>Identificadores de publicidade</strong> abaixo.
         </p>
         <p>
-          Você pode limitar parte da coleta nas configurações de anúncios e
-          personalização do dispositivo Android ou desinstalando o aplicativo.
-          A retenção dos dados é regida pelas políticas e configurações do
-          Google/Firebase.
+          <strong>Retenção.</strong> Dados analíticos opcionais: enquanto o
+          consentimento estiver ativo, sujeitos às políticas do Google. Após a
+          revogação, interrompemos novas coletas e redefinimos os dados
+          analíticos no dispositivo. Dados de diagnóstico: conforme as
+          políticas do <strong>Firebase Crashlytics</strong>.
         </p>
       </section>
 
       <section class="space-y-md border-t border-border pt-2xl">
         <h2>Identificadores de publicidade</h2>
         <p>
-          O <strong>Google Analytics for Firebase</strong> pode acessar o
-          <strong>identificador de publicidade</strong> do dispositivo (Android
-          Advertising ID). Esse dado é processado pelo Google conforme a
+          O <strong>identificador de publicidade</strong> do dispositivo (Android
+          Advertising ID) só é utilizado no contexto das
+          <strong>estatísticas de uso</strong> quando você as autoriza, conforme
+          descrito em <strong>Serviços Firebase</strong> e
+          <strong>Suas escolhas</strong>. Esse dado é processado pelo Google
+          conforme a
           <a href="https://policies.google.com/privacy" rel="noopener noreferrer"
             >Política de Privacidade do Google</a
           >.
         </p>
         <p>
-          O aplicativo <strong>não exibe anúncios</strong>. O identificador é
-          utilizado apenas no contexto da telemetria descrita na seção
-          <strong>Serviços Firebase</strong>, para entender o uso e melhorar o
-          produto.
+          O aplicativo <strong>não exibe anúncios</strong> e
+          <strong>não utiliza</strong> o identificador para publicidade
+          personalizada. O aplicativo não utiliza vinculação a Google Ads ou
+          Google Signals.
         </p>
         <p>
-          O aplicativo não utiliza vinculação a Google Ads ou Google Signals.
+          Você pode revogar ou alterar seu consentimento a qualquer momento em
+          <strong>Configurações → Preferências de privacidade</strong> (veja
+          <strong>Suas escolhas</strong>). Nas configurações de anúncios e
+          personalização do dispositivo Android, você também pode limitar o uso
+          do identificador de publicidade no nível do sistema operacional.
+        </p>
+      </section>
+
+      <section class="space-y-md border-t border-border pt-2xl">
+        <h2>Suas escolhas</h2>
+        <p>
+          No <strong>primeiro acesso</strong>, o aplicativo exibe uma tela de
+          privacidade antes do uso. Depois, você pode gerenciar suas preferências
+          em <strong>Configurações → Preferências de privacidade</strong>.
+        </p>
+        <p>As opções disponíveis são:</p>
+        <ul>
+          <li>
+            <strong>Consentir</strong>: autoriza as estatísticas de uso (Google
+            Analytics for Firebase), incluindo o identificador de publicidade
+            quando aplicável;
+          </li>
+          <li>
+            <strong>Não consentir</strong>: mantém as estatísticas de uso
+            desativadas;
+          </li>
+          <li>
+            <strong>Personalizar</strong>: permite ajustar suas preferências de
+            privacidade.
+          </li>
+        </ul>
+        <p>
+          Você pode <strong>revogar ou alterar</strong> seu consentimento a
+          qualquer momento pelo mesmo caminho em
+          <strong>Configurações → Preferências de privacidade</strong>.
         </p>
         <p>
-          Você pode limitar a coleta do identificador de publicidade nas
-          configurações de anúncios e personalização do dispositivo Android.
+          Se você recusar ou desativar as estatísticas de uso, novas coletas
+          analíticas são interrompidas e os dados analíticos locais do dispositivo
+          são redefinidos. O diagnóstico de falhas (Crashlytics) e o
+          monitoramento de desempenho (Performance) continuam conforme descrito em
+          <strong>Serviços Firebase</strong>.
         </p>
       </section>
 
@@ -181,14 +234,40 @@ const description =
           <li>
             <strong>Identificador de publicidade (AD_ID)</strong>: declarado no
             manifesto do aplicativo para que o Google Analytics for Firebase
-            acesse o Android Advertising ID, conforme descrito na seção
-            <strong>Identificadores de publicidade</strong>.
+            acesse o Android Advertising ID no contexto das estatísticas de
+            uso, <strong>somente quando você autoriza</strong>, conforme
+            descrito nas seções <strong>Identificadores de publicidade</strong>
+            e <strong>Suas escolhas</strong>.
           </li>
         </ul>
         <p>
           O microfone é utilizado exclusivamente para afinação. O identificador
-          de publicidade é utilizado apenas no contexto descrito na seção
-          <strong>Identificadores de publicidade</strong>.
+          de publicidade é utilizado somente no contexto das estatísticas de uso
+          autorizadas, conforme as seções
+          <strong>Identificadores de publicidade</strong> e
+          <strong>Suas escolhas</strong>.
+        </p>
+      </section>
+
+      <section class="space-y-md border-t border-border pt-2xl">
+        <h2>Controlador e operador de dados</h2>
+        <p>
+          O controlador dos dados é <strong>Code Studio 92</strong>. Para
+          questões sobre esta Política, entre em contato pelo e-mail
+          <a href="mailto:codestudio92@gmail.com">codestudio92@gmail.com</a>.
+        </p>
+        <p>
+          O <strong>Google</strong> atua como operador/processador na prestação
+          dos serviços Firebase, conforme os termos do Firebase/Google.
+        </p>
+      </section>
+
+      <section class="space-y-md border-t border-border pt-2xl">
+        <h2>Transferência internacional de dados</h2>
+        <p>
+          Os dados tratados pelo Firebase podem ser processados em servidores fora
+          do Brasil e do Espaço Econômico Europeu, inclusive nos Estados Unidos,
+          com salvaguardas contratuais aplicáveis pelo Google.
         </p>
       </section>
 
@@ -196,13 +275,14 @@ const description =
         <h2>Crianças</h2>
         <p>
           O aplicativo não coleta intencionalmente dados identificáveis
-          fornecidos por menores de idade. A telemetria descrita nos serviços
-          Firebase segue as mesmas regras desta Política.
+          fornecidos por menores de idade. A telemetria descrita nesta Política
+          — incluindo diagnóstico e desempenho necessários — segue as mesmas
+          regras aqui descritas.
         </p>
       </section>
 
       <section class="space-y-md border-t border-border pt-2xl">
-        <h2>Alterações nesta Política</h2>
+        <h2>Alterações nesta política</h2>
         <p>
           Esta Política de Privacidade poderá ser atualizada para refletir
           alterações no funcionamento do aplicativo ou para atender a novos
@@ -241,16 +321,17 @@ const description =
         <h2>Data Collection</h2>
         <p>
           The <strong>Ukulele Tuner</strong> does not require account
-          registration and does not collect data provided directly by the user
-          (such as name, email, or phone number).
+          registration and does not collect data you type (such as name, email, or
+          phone number).
         </p>
         <p>
-          Core tuning functionality runs on the user's device and the
-          application does not have its own server for that processing.
+          Core tuning functionality runs on your device and audio processing is
+          local; the application does not have its own server for that
+          processing.
         </p>
         <p>
-          Usage, diagnostic, and performance data are collected automatically by
-          Firebase services (Google), as described in the
+          Some telemetry is optional and depends on your consent. Diagnostics and
+          performance follow the rules described in the
           <strong>Firebase Services</strong> section below.
         </p>
       </section>
@@ -277,20 +358,31 @@ const description =
       <section class="space-y-md border-t border-border pt-2xl">
         <h2>Firebase Services</h2>
         <p>
-          The application uses Firebase services (Google) to understand usage,
-          diagnose crashes, and monitor performance. Data is processed by Google
-          according to the
+          The application uses Firebase services (Google). Data is processed by
+          Google according to the
           <a href="https://policies.google.com/privacy" rel="noopener noreferrer"
             >Google Privacy Policy</a
           >.
         </p>
+        <p>
+          <strong>Usage statistics (optional).</strong>
+          <strong>Google Analytics for Firebase</strong>, including the
+          advertising identifier when applicable, collects app usage data,
+          automatic events, and app/device identifiers only after your
+          <strong>explicit consent</strong>, which you may grant, decline, or
+          change at any time in
+          <strong>Settings → Privacy preferences</strong> (see also
+          <strong>Your choices</strong> below). If you decline or disable this
+          option, new analytics collection stops and local analytics data on the
+          device is reset.
+        </p>
+        <p>
+          <strong>Diagnostics and performance (required).</strong>
+          The services below are necessary to maintain application stability and
+          quality and <strong>do not depend</strong> on the optional usage
+          statistics choice:
+        </p>
         <ul>
-          <li>
-            <strong>Google Analytics for Firebase</strong>: app usage data,
-            automatic events, app/device identifiers, and the advertising
-            identifier (Android Advertising ID), to understand how the
-            application is used and improve the product.
-          </li>
           <li>
             <strong>Firebase Crashlytics</strong>: crash stack traces,
             installation identifiers, and device and operating system
@@ -308,38 +400,77 @@ const description =
           </li>
         </ul>
         <p>
-          Use of the advertising identifier is described in the
-          <strong>Advertising Identifiers</strong> section below.
+          Use of the advertising identifier in the context of usage statistics is
+          described in the <strong>Advertising Identifiers</strong> section
+          below.
         </p>
         <p>
-          You can limit some collection through your Android device's ads and
-          personalization settings or by uninstalling the application. Data
-          retention is governed by Google/Firebase policies and settings.
+          <strong>Retention.</strong> Optional analytics data: while consent is
+          active, subject to Google's policies. After revocation, we stop new
+          collection and reset analytics data on the device. Diagnostic data:
+          according to <strong>Firebase Crashlytics</strong> policies.
         </p>
       </section>
 
       <section class="space-y-md border-t border-border pt-2xl">
         <h2>Advertising Identifiers</h2>
         <p>
-          <strong>Google Analytics for Firebase</strong> may access the device's
-          <strong>advertising identifier</strong> (Android Advertising ID). This
-          data is processed by Google according to the
+          The device's <strong>advertising identifier</strong> (Android
+          Advertising ID) is used only in the context of
+          <strong>usage statistics</strong> when you authorize them, as
+          described in <strong>Firebase Services</strong> and
+          <strong>Your choices</strong>. This data is processed by Google
+          according to the
           <a href="https://policies.google.com/privacy" rel="noopener noreferrer"
             >Google Privacy Policy</a
           >.
         </p>
         <p>
-          The application <strong>does not display ads</strong>. The identifier
-          is used only in the context of the telemetry described in the
-          <strong>Firebase Services</strong> section, to understand usage and
-          improve the product.
+          The application <strong>does not display ads</strong> and
+          <strong>does not use</strong> the identifier for personalized
+          advertising. The application does not use linking to Google Ads or
+          Google Signals.
         </p>
         <p>
-          The application does not use linking to Google Ads or Google Signals.
+          You may revoke or change your consent at any time in
+          <strong>Settings → Privacy preferences</strong> (see
+          <strong>Your choices</strong>). In your Android device's ads and
+          personalization settings, you can also limit use of the advertising
+          identifier at the operating system level.
+        </p>
+      </section>
+
+      <section class="space-y-md border-t border-border pt-2xl">
+        <h2>Your choices</h2>
+        <p>
+          On <strong>first launch</strong>, the application shows a privacy
+          screen before use. After that, you can manage your preferences in
+          <strong>Settings → Privacy preferences</strong>.
+        </p>
+        <p>The available options are:</p>
+        <ul>
+          <li>
+            <strong>Consent</strong>: authorizes usage statistics (Google
+            Analytics for Firebase), including the advertising identifier when
+            applicable;
+          </li>
+          <li>
+            <strong>Do not consent</strong>: keeps usage statistics disabled;
+          </li>
+          <li>
+            <strong>Customize</strong>: lets you adjust your privacy preferences.
+          </li>
+        </ul>
+        <p>
+          You may <strong>revoke or change</strong> your consent at any time
+          through the same path in
+          <strong>Settings → Privacy preferences</strong>.
         </p>
         <p>
-          You can limit collection of the advertising identifier through your
-          Android device's ads and personalization settings.
+          If you decline or disable usage statistics, new analytics collection
+          stops and local analytics data on the device is reset. Crash
+          diagnostics (Crashlytics) and performance monitoring (Performance)
+          continue as described in <strong>Firebase Services</strong>.
         </p>
       </section>
 
@@ -366,28 +497,54 @@ const description =
           <li>
             <strong>Advertising identifier (AD_ID)</strong>: declared in the
             application manifest so Google Analytics for Firebase may access the
-            Android Advertising ID, as described in the
-            <strong>Advertising Identifiers</strong> section.
+            Android Advertising ID in the context of usage statistics,
+            <strong>only when you authorize</strong>, as described in the
+            <strong>Advertising Identifiers</strong> and
+            <strong>Your choices</strong> sections.
           </li>
         </ul>
         <p>
           The microphone is used exclusively for tuning. The advertising
-          identifier is used only in the context described in the
-          <strong>Advertising Identifiers</strong> section.
+          identifier is used only in the context of authorized usage statistics,
+          as described in the <strong>Advertising Identifiers</strong> and
+          <strong>Your choices</strong> sections.
+        </p>
+      </section>
+
+      <section class="space-y-md border-t border-border pt-2xl">
+        <h2>Data controller and processor</h2>
+        <p>
+          The data controller is <strong>Code Studio 92</strong>. For questions
+          about this Policy, contact us at
+          <a href="mailto:codestudio92@gmail.com">codestudio92@gmail.com</a>.
+        </p>
+        <p>
+          <strong>Google</strong> acts as operator/processor in providing
+          Firebase services, under Firebase/Google terms.
+        </p>
+      </section>
+
+      <section class="space-y-md border-t border-border pt-2xl">
+        <h2>International data transfers</h2>
+        <p>
+          Data processed by Firebase may be processed on servers outside Brazil
+          and the European Economic Area, including the United States, with
+          contractual safeguards applied by Google.
         </p>
       </section>
 
       <section class="space-y-md border-t border-border pt-2xl">
         <h2>Children</h2>
         <p>
-          The application does not intentionally collect identifiable
-          information provided by minors. Telemetry described under Firebase
-          services follows the same rules in this Policy.
+          The application does not intentionally collect identifiable information
+          provided by minors. Telemetry described in this Policy — including
+          required diagnostics and performance — follows the same rules described
+          here.
         </p>
       </section>
 
       <section class="space-y-md border-t border-border pt-2xl">
-        <h2>Changes to This Policy</h2>
+        <h2>Changes to this policy</h2>
         <p>
           This Privacy Policy may be updated to reflect changes in how the
           application works or to meet new legal requirements.
